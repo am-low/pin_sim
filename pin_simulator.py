@@ -21,7 +21,9 @@ button = GPIO("/dev/gpiochip4", 13, "in")  # pin 36
 try:
   print('commence')
   while True:
-    value = gpio_p13.read()     
+    value = gpio_p13.read()
+    if value == 1:
+        print('yea')
     gpio_p16.write(not value)
     led.write(button.read())
     
