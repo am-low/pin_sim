@@ -19,13 +19,15 @@ led = GPIO("/dev/gpiochip2", 13, "out")  # pin 37
 button = GPIO("/dev/gpiochip4", 13, "in")  # pin 36
 
 try:
+  print('commence')
   while True:
     value = gpio_p13.read()     
     gpio_p16.write(not value)
     led.write(button.read())
     
 except KeyboardInterrupt:
-    
+
+  print('terminated')
   led.write(False)
   gpio_p16.write(False)
   
